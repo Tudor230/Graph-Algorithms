@@ -29,6 +29,16 @@ def floydWarshall(dist):
                     if dist[i][k] + dist[k][j] < dist[i][j]:
                         dist[i][j] = dist[i][k] + dist[k][j]
                         next_node[i][j] = next_node[i][k]
+
+        # Print the distance matrix after each iteration k
+        print(f"\nDistance Matrix after considering vertex {k} as intermediate:")
+        for r in range(V):
+            for c in range(V):
+                if dist[r][c] == INF:
+                    print("INF", end="\t")
+                else:
+                    print(dist[r][c], end="\t")
+            print()
     
     return next_node
 
@@ -63,7 +73,7 @@ if __name__ == "__main__":
     # Store the next_node matrix returned by the function
     next_node = floydWarshall(dist)
     
-    print("Shortest Distance Matrix:")
+    print("\nShortest Distance Matrix:")
     for i in range(len(dist)):
         for j in range(len(dist)):
             if dist[i][j] == INF:
