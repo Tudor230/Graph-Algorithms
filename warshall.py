@@ -46,12 +46,18 @@ def constructPath(u, v, next_node):
 if __name__ == "__main__":
     
     INF = 100000000;
+    # dist = [
+    #     [0, 4, INF, 5, INF],
+    #     [INF, 0, 1, INF, 6],
+    #     [2, INF, 0, 3, INF],
+    #     [INF, INF, 1, 0, 2],
+    #     [1, INF, INF, 4, 0]
+    # ]
     dist = [
-        [0, 4, INF, 5, INF],
-        [INF, 0, 1, INF, 6],
-        [2, INF, 0, 3, INF],
-        [INF, INF, 1, 0, 2],
-        [1, INF, INF, 4, 0]
+        [0,10,2,6],
+        [3,0,INF,4],
+        [INF,INF,0,3],
+        [3,4,1,0]
     ]
     
     # Store the next_node matrix returned by the function
@@ -68,13 +74,20 @@ if __name__ == "__main__":
         
     print("\nShortest Paths:")
     V = len(dist)
+    
+    # Helper to convert index to letter (0 -> A, 1 -> B, etc.)
+    def to_char(n):
+        return chr(ord('A') + n)
+
     for i in range(V):
         for j in range(V):
             if i != j:
                 path = constructPath(i, j, next_node)
-                print(f"Path {i} -> {j}: ", end="")
+                print(f"Path {to_char(i)} -> {to_char(j)}: ", end="")
                 if path:
-                    print(" -> ".join(map(str, path)), end="")
+                    # Convert path indices to letters
+                    path_letters = [to_char(node) for node in path]
+                    print(" -> ".join(path_letters), end="")
                     print(f" (Cost: {dist[i][j]})")
                 else:
                     print("No path")
