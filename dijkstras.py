@@ -1,6 +1,10 @@
 import heapq
 import sys
 
+# Input Format:
+# src = Source vertex index (integer)
+# adj = Adjacency List (List of Lists), where adj[u] contains tuples (neighbor, weight)
+# Example: adj = [[(1, 4), (2, 8)], ...]
 
 def dijkstra(adj, src):
 

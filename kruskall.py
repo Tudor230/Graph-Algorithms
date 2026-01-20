@@ -1,5 +1,10 @@
 from functools import cmp_to_key
 
+# Input Format:
+# V = Number of vertices (integer)
+# edges = List of edges, where each edge is [u, v, weight]
+# Example: edges = [[0, 1, 10], [1, 3, 15], ...]
+
 def comparator(a,b):
     return a[2] - b[2];
 

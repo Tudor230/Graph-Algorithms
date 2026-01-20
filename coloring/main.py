@@ -1,6 +1,11 @@
 from Graph import Graph
 from chromaticPolynomial import ChromaticPolynomial
 
+# Input Format:
+# Programmatic Graph Construction:
+# g.addVertex(label) for each vertex
+# g.addEdge(u, v) for each edge
+
 def main():
     # Create a new Graph
     g = Graph()

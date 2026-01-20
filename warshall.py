@@ -1,3 +1,7 @@
+# Input Format:
+# dist = Adjacency/Distance Matrix (2D List)
+#        dist[i][j] = weight of edge i->j, or 0 if i==j, or INF if no edge.
+
 # Solves the all-pairs shortest path
 # problem using Floyd Warshall algorithm
 def floydWarshall(dist):

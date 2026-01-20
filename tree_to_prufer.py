@@ -1,5 +1,10 @@
 import heapq
 
+# Input Format:
+# adj = Adjacency Dictionary where keys are vertex labels (1-based)
+#       and values are lists of neighbors.
+# Example: adj = { 1: [5, 7, 3], 2: [4], ... }
+
 def tree_to_prufer(adj):
     n = len(adj)
     degree = [0] * (n + 1)

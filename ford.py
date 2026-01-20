@@ -1,5 +1,10 @@
 from collections import defaultdict
 
+# Input Format:
+# graph = Adjacency Matrix (2D List), where graph[u][v] is the capacity of edge u->v
+# source = Source vertex (integer index)
+# sink = Sink vertex (integer index)
+
 class Graph:
 
     def __init__(self, graph):
@@ -60,13 +65,14 @@ class Graph:
         return max_flow
 
 
-graph = [[0, 8, 0, 0, 3, 0],
-         [0, 0, 9, 0, 0, 0],
-         [0, 0, 0, 0, 7, 2],
-         [0, 0, 0, 0, 0, 5],
-         [0, 0, 7, 4, 0, 0],
-         [0, 0, 0, 0, 0, 0]]
-
+graph = [[0,23,1,27,0,0,0,0],
+         [0,0,0,10,0,0,0,0],
+         [0,17,0,0,14,17,0,0],
+         [0,0,24,0,0,0,0,0],
+         [0,0,0,0,0,24,0,42],
+         [0,0,0,0,0,0,0,0],
+         [0,0,1,0,0,12,0,0],
+         [0,0,0,0,0,0,0,0]]
 g = Graph(graph)
 
 source = 0

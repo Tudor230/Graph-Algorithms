@@ -1,3 +1,8 @@
+# Input Format:
+# adj = Adjacency List (List of Lists) representing a Directed Graph
+# adj[u] contains neighbors of u.
+# Note: For Eulerian Circuit, in-degree must equal out-degree for every vertex.
+
 def printCircuit(adj):
     n = len(adj)
 

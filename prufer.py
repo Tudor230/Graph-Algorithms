@@ -1,3 +1,7 @@
+# Input Format:
+# prufer = List of integers representing the Prufer Sequence
+# m = Length of the Prufer sequence (n - 2, where n is number of vertices)
+
 def printTreeEdges(prufer, m):
     
     vertices = m + 2

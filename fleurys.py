@@ -1,3 +1,8 @@
+# Input Format:
+# v = Total number of vertices (integer)
+# adj = Adjacency List (List of Lists), where adj[u] contains neighbors of u
+# Example: adj = [[1, 2], [0, 2], [0, 1, 3], [2]] for a graph with 4 vertices
+
 # Function to remove edge u-v from the graph
 def removeEdge(adj, u, v):
     adj[u].remove(v)
