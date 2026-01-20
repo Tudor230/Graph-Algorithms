@@ -7,7 +7,9 @@ class Graph:
         self. ROW = len(graph)
 
 
-    # Using BFS as a searching algorithm 
+    # Returns true if there is a path from source 's' to sink 't' in
+    # residual graph. Also fills parent[] to store the path.
+    # Uses BFS to find the shortest augmenting path (Edmonds-Karp implementation).
     def searching_algo_BFS(self, s, t, parent):
 
         visited = [False] * (self.ROW)
@@ -28,11 +30,14 @@ class Graph:
 
         return True if visited[t] else False
 
-    # Applying fordfulkerson algorithm
+    # Returns the maximum flow from source to sink in the given graph.
+    # It repeatedly finds an augmenting path in the residual graph
+    # and adds the path's bottleneck capacity to the max_flow.
     def ford_fulkerson(self, source, sink):
         parent = [-1] * (self.ROW)
         max_flow = 0
 
+        # Augment the flow while there is a path from source to sink
         while self.searching_algo_BFS(source, sink, parent):
 
             path_flow = float("Inf")

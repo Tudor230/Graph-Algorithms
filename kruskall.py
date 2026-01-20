@@ -3,6 +3,10 @@ from functools import cmp_to_key
 def comparator(a,b):
     return a[2] - b[2];
 
+# Kruskal's Algorithm to find Minimum Spanning Tree
+# 1. Sort all edges in non-decreasing order of their weight
+# 2. Pick the smallest edge. Check if it forms a cycle with the spanning tree formed so far.
+# 3. If cycle is not formed, include this edge. Else, discard it.
 def kruskals_mst(V, edges):
 
     # Sort all edges
@@ -14,9 +18,11 @@ def kruskals_mst(V, edges):
     count = 0
     mst_edges = []
     
+    # Iterate through sorted edges
     for x, y, w in edges:
         
-        # Make sure that there is no cycle
+        # Check if the selected edge creates a cycle
+        # If u and v are in different sets (find(u) != find(v)), no cycle is formed
         if dsu.find(x) != dsu.find(y):
             dsu.union(x, y)
             cost += w
@@ -31,17 +37,20 @@ def kruskals_mst(V, edges):
         
     return cost
     
-# Disjoint set data structure
+# Disjoint set data structure (Union-Find)
+# Keeps track of a set of elements partitioned into a number of disjoint (non-overlapping) subsets.
 class DSU:
     def __init__(self, n):
         self.parent = list(range(n))
         self.rank = [1] * n
 
+    # Find function with path compression
     def find(self, i):
         if self.parent[i] != i:
             self.parent[i] = self.find(self.parent[i])
         return self.parent[i]
 
+    # Union function by rank/size
     def union(self, x, y):
         s1 = self.find(x)
         s2 = self.find(y)
